@@ -24,6 +24,9 @@
     <ClCompile Include="Substation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Consumer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Substation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Consumer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
