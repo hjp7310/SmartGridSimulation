@@ -30,7 +30,13 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cpp, .msg and .sm files
-OBJS = $O/PowerPlant.o $O/Substation.o
+OBJS = \
+    $O/Consumer.o \
+    $O/ControlCenter.o \
+    $O/ControlMsg.o \
+    $O/Power.o \
+    $O/PowerPlant.o \
+    $O/Substation.o
 
 # Message files
 MSGFILES =

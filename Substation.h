@@ -1,11 +1,19 @@
 #pragma once
 #include "Common.h"
+#include "ControlMsg.h"
+#include "Power.h"
 
-class Substation : public cSimpleModule
+class Substation : public omnetpp::cSimpleModule
 {
+private:
+    int watt;
+    int inputSize;
+    int outputSize;
+    int cnt;
+    int cntMax;
 protected:
     virtual void initialize() override;
-    virtual void handleMessage(cMessage* msg) override;
+    virtual void handleMessage(omnetpp::cMessage* msg) override;
 };
 
 Define_Module(Substation);

@@ -120,12 +120,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Consumer.cpp" />
+    <ClCompile Include="ControlCenter.cpp" />
+    <ClCompile Include="ControlMsg.cpp" />
+    <ClCompile Include="Power.cpp" />
     <ClCompile Include="PowerPlant.cpp" />
     <ClCompile Include="Substation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Consumer.h" />
+    <ClInclude Include="ControlCenter.h" />
+    <ClInclude Include="ControlMsg.h" />
+    <ClInclude Include="Power.h" />
     <ClInclude Include="PowerPlant.h" />
     <ClInclude Include="Substation.h" />
   </ItemGroup>

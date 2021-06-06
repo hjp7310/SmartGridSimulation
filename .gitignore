@@ -1,6 +1,10 @@
 /out/
+/frames
 .settings/
 .project
+.cproject
+.oppbuildspec
+.qtenvrc
 
 *.suo
 *.user
