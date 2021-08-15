@@ -25,6 +25,7 @@ void Substation::handleMessage(omnetpp::cMessage* msg)
 			Power *nmsg = new Power(this->watt);
 			send(nmsg, "power_gate_out", i);
 		}
+		EV << "Substation " << " Power: " << this->watt << "\n";
 		this->watt = 0;
 		this->cnt = 0;
 	}

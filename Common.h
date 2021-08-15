@@ -1,8 +1,15 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
 #include <memory>
+#include <utility>
+#include <algorithm>
 #include <vector>
+#include <random>
 #include <omnetpp.h>
+
+#define HOUR 24
 
 enum class NodeAttribute
 {
@@ -24,9 +31,16 @@ struct PowerPlantInfo
 	int nodeId;
 	int minPowerGen;
 	int maxPowerGen;
+	int cost;
 };
 
 struct SubstationInfo
 {
 	int nodeId;
+};
+
+struct ConsumerInfo
+{
+	int nodeId;
+	std::vector<int> Consumption;
 };
