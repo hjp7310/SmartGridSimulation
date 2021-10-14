@@ -27,3 +27,5 @@ x86/
 
 *.exe
 *.mp4
+
+/results/

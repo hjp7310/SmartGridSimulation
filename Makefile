@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for SmartGridSimulation
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -I.
+#  opp_makemake -f --deep -O out -KINET_PROJ=../inet -DINET_IMPORT -I. -I$$\(INET_PROJ\)/src -L$$\(INET_PROJ\)/src -lINET$$\(D\)
 #
 
 # Name of target to be created (-o option)
@@ -16,13 +16,13 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LI
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I.
+INCLUDE_PATH = -I. -I$(INET_PROJ)/src
 
 # Additional object and library files to link with
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS = $(LDFLAG_LIBPATH)$(INET_PROJ)/src  -lINET$(D)
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -31,6 +31,7 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cpp, .msg and .sm files
 OBJS = \
+    $O/App.o \
     $O/Consumer.o \
     $O/ControlCenter.o \
     $O/ControlMsg.o \
@@ -43,6 +44,9 @@ MSGFILES =
 
 # SM files
 SMFILES =
+
+# Other makefile variables (-K)
+INET_PROJ=../inet
 
 #------------------------------------------------------------------------------
 
@@ -66,8 +70,11 @@ include $(CONFIGFILE)
 
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
+ifneq ($(TOOLCHAIN_NAME),clangc2)
+LIBS += -Wl,-rpath,$(abspath $(INET_PROJ)/src)
+endif
 
-COPTS = $(CFLAGS) $(IMPORT_DEFINES)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
+COPTS = $(CFLAGS) $(IMPORT_DEFINES) -DINET_IMPORT $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)
 SMCOPTS =
 

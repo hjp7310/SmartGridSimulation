@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <vector>
 #include <random>
+#include <sstream>
+#include <iterator>
 #include <omnetpp.h>
 
 #define HOUR 24
