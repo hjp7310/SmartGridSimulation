@@ -3,8 +3,8 @@
 void Substation::initialize()
 {
 	this->watt = 0;
-	this->inputSize = gateSize("power_gate_in");
-	this->outputSize = gateSize("power_gate_out");
+	this->inputSize = par("power_gate_in");
+	this->outputSize = par("power_gate_out");
 	this->cnt = 0;
 }
 
@@ -23,7 +23,7 @@ void Substation::handleMessage(omnetpp::cMessage* msg)
 		for (int i = 0; i < this->outputSize; i++)
 		{
 			Power *nmsg = new Power(this->watt);
-			send(nmsg, "power_gate_out", i);
+			send(nmsg, "power_gate$o", i + this->inputSize);
 		}
 		EV << "Substation " << " Power: " << this->watt << "\n";
 		this->watt = 0;

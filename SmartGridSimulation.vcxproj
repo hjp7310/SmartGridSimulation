@@ -66,16 +66,36 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OMNeT++\omnetpp-5.6.2\workspace\inet\src;$(IncludePath)</IncludePath>
+    <ReferencePath>
+    </ReferencePath>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OMNeT++\omnetpp-5.6.2\workspace\inet\src;$(IncludePath)</IncludePath>
+    <ReferencePath>
+    </ReferencePath>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OMNeT++\omnetpp-5.6.2\workspace\inet\src;$(IncludePath)</IncludePath>
+    <ReferencePath>
+    </ReferencePath>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OMNeT++\omnetpp-5.6.2\workspace\inet\src;$(IncludePath)</IncludePath>
+    <ReferencePath>
+    </ReferencePath>
+    <NMakeIncludeSearchPath>
+    </NMakeIncludeSearchPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,6 +139,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="Consumer.cpp" />
     <ClCompile Include="ControlCenter.cpp" />
     <ClCompile Include="ControlMsg.cpp" />
@@ -127,6 +148,7 @@
     <ClCompile Include="Substation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="App.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Consumer.h" />
     <ClInclude Include="ControlCenter.h" />
@@ -137,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NetworkTopology.ned" />
+    <None Include="omnetpp.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

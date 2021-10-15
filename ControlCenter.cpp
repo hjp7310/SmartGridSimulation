@@ -26,7 +26,7 @@ void ControlCenter::handleMessage(omnetpp::cMessage *msg)
 	switch (tmsg->GetCommand())
 	{
 	case ControlCommand::GeneratePower:
-		send(tmsg, "control_gate$o", tmsg->GetNodeId() - 1);
+		send(tmsg, "control_gate$o", tmsg->GetNodeId());
 		char buf[64];
 		EV << "ControlCenter " << " Time: " << cnt + 1
 			<< " Node ID: " << itoa(tmsg->GetNodeId(), buf, 10) << " Power: " << tmsg->GetWatt() << "\n";
@@ -57,21 +57,38 @@ void ControlCenter::handleMessage(omnetpp::cMessage *msg)
 
 void ControlCenter::SetPowerPlant()
 {
-	this->powerPlants.push_back(PowerPlantInfo{ 1, 100, 10000, 10 });
-	this->powerPlants.push_back(PowerPlantInfo{ 2, 100, 1000, 5 });
+	int powerPlantNum = par("power_plant_num");
+	std::string powerPlantInfoStr(par("power_plant_info").stringValue());
+	std::vector<int> powerPlantInfo;
+	std::stringstream stringStream(powerPlantInfoStr);
+	std::string item;
+	while (std::getline(stringStream, item, ' '))
+	{
+		powerPlantInfo.push_back(stoi(item));
+	}
+
+	for (int i = 0; i < powerPlantNum; i++)
+	{
+		this->powerPlants.push_back(PowerPlantInfo{ i, powerPlantInfo[i * 3], powerPlantInfo[i * 3 + 1], powerPlantInfo[i * 3 + 2] });
+	}
 }
 
 void ControlCenter::SetSubstation()
 {
-	this->substations.push_back(SubstationInfo{ 1 });
-	this->substations.push_back(SubstationInfo{ 2 });
+	int substationNum = par("substation_num");
+	for (int i = 0; i < substationNum; i++)
+	{
+		this->substations.push_back(SubstationInfo{ i });
+	}
 }
 
 void ControlCenter::SetCoustomer()
 {
-	this->consumers.push_back(ConsumerInfo{ 1 });
-	this->consumers.push_back(ConsumerInfo{ 2 });
-	this->consumers.push_back(ConsumerInfo{ 3 });
+	int consumerNum = par("consumer_num");
+	for (int i = 0; i < consumerNum; i++)
+	{
+		this->consumers.push_back(ConsumerInfo{ i });
+	}
 }
 
 void ControlCenter::SetDayConsumption()
@@ -141,7 +158,7 @@ std::vector<ControlMsg*> ControlCenter::GenerateMessage()
 void ControlCenter::ForwardMessage(omnetpp::cMessage *msg)
 {
 	ControlMsg* tmsg = dynamic_cast<ControlMsg*>(msg);
-	send(tmsg, "control_gate$o", tmsg->GetNodeId() - 1);
+	send(tmsg, "control_gate$o", tmsg->GetNodeId());
 	char buf[64];
 	EV << "ControlCenter " << " Time: " << (cnt + 1) / consumers.size() + 1
 		<< " Node ID: " << itoa(tmsg->GetNodeId(), buf, 10) << " Power: " << tmsg->GetWatt() << "\n";

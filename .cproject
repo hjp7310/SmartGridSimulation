@@ -20,13 +20,24 @@
 					<folderInfo id="org.omnetpp.cdt.gnu.config.debug.1757795548." name="/" resourcePath="">
 						<toolChain id="org.omnetpp.cdt.gnu.toolchain.debug.1854212884" name="C++ Toolchain for OMNeT++" superClass="org.omnetpp.cdt.gnu.toolchain.debug">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.MachO64;org.eclipse.cdt.core.PE" id="org.omnetpp.cdt.targetPlatform.417705619" isAbstract="false" name="Windows, Linux, Mac" osList="win32,linux,macosx" superClass="org.omnetpp.cdt.targetPlatform"/>
-							<builder id="org.omnetpp.cdt.gnu.builder.debug.1585072929" managedBuildOn="true" name="OMNeT++ Make Builder (opp_makemake).debug" superClass="org.omnetpp.cdt.gnu.builder.debug"/>
+							<builder id="org.omnetpp.cdt.gnu.builder.debug.1585072929" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="OMNeT++ Make Builder (opp_makemake)" superClass="org.omnetpp.cdt.gnu.builder.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1106130813" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.1297866096" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.1774727672" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.1297866096" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2111215309" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.1774727672" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1822265165" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1504607148" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.641000270" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.base.1237012688" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.641000270" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1473907252" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.base.1237012688" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.416517186" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
 						</toolChain>
 					</folderInfo>
 				</configuration>
@@ -52,16 +63,35 @@
 					<folderInfo id="org.omnetpp.cdt.gnu.config.release.597452372." name="/" resourcePath="">
 						<toolChain id="org.omnetpp.cdt.gnu.toolchain.release.1103834761" name="C++ Toolchain for OMNeT++" superClass="org.omnetpp.cdt.gnu.toolchain.release">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.MachO64;org.eclipse.cdt.core.PE" id="org.omnetpp.cdt.targetPlatform.510804825" isAbstract="false" name="Windows, Linux, Mac" osList="win32,linux,macosx" superClass="org.omnetpp.cdt.targetPlatform"/>
-							<builder id="org.omnetpp.cdt.gnu.builder.release.363773287" managedBuildOn="true" name="OMNeT++ Make Builder (opp_makemake).release" superClass="org.omnetpp.cdt.gnu.builder.release"/>
+							<builder id="org.omnetpp.cdt.gnu.builder.release.363773287" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="OMNeT++ Make Builder (opp_makemake)" superClass="org.omnetpp.cdt.gnu.builder.release">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name=""/>
+								</outputEntries>
+							</builder>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.1338744340" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.169197694" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.724583380" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.169197694" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1236252440" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.724583380" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.605233342" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1246618574" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1318374174" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.base.2126181220" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1318374174" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.117429697" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.base.2126181220" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.both.asm.option.include.paths.938114893" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.749999798" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
 						</toolChain>
 					</folderInfo>
 				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
+				<externalSettings containerId="inet;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
 			</storageModule>
 		</cconfiguration>
 	</storageModule>
@@ -78,4 +108,6 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>
